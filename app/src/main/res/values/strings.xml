@@ -8,4 +8,7 @@
     <string name="about_detail_string">ระบบ \"AuNzCoffee\" เป็นระบบที่ถูกพัฒนาเพื่อเป็นตัวช่วยในการจดจำสูตรการชงกาแฟและชาต่างๆสำหรับผู้ที่ต้องการเปิดกิจการร้านกาแฟในอนาคต หรือสำหรับบุคคลทั่วไปที่ต้องการมีไว้ติดครัวเรือนที่บ้านก็ได้</string>
     <string name="about_string">About</string>
     <string name="todo">TODO</string>
+    <string name="capuchino_button">คาปูชิโน่</string>
+    <string name="share_coffee_text">Hello!! %1$s</string>
+    <string name="share_item" />
 </resources>

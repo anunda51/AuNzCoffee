@@ -10,7 +10,7 @@ import android.view.ViewGroup
 /**
  * A simple [Fragment] subclass.
  */
-class tea_ingrediant_page : Fragment() {
+class TeaIngrediantPage : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

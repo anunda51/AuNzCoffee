@@ -1,14 +1,14 @@
-package buu.informatics.s59160625.aunzcoffee
+package buu.informatics.s59160625.aunzcoffee.Screens.Title
 
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import kotlinx.android.synthetic.main.fragment_title_page.*
+import buu.informatics.s59160625.aunzcoffee.R
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentTitlePageBinding
 /**
  * A simple [Fragment] subclass.
@@ -28,6 +28,7 @@ class TitlePage : Fragment() {
             view.findNavController().navigate(R.id.action_title_page_to_tea_list)
         }
         setHasOptionsMenu(true)
+        Toast.makeText(context,"หน้าแรก",Toast.LENGTH_LONG).show()
         return binding.root
     }
 

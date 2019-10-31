@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee
+package buu.informatics.s59160625.aunzcoffee.Screens.About
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import buu.informatics.s59160625.aunzcoffee.R
 
 /**
  * A simple [Fragment] subclass.
@@ -19,6 +20,4 @@ class AboutPage : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about_page, container, false)
     }
-
-
 }
