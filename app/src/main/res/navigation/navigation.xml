@@ -44,4 +44,9 @@
         android:name="buu.informatics.s59160625.aunzcoffee.tea_ingrediant_page"
         android:label="fragment_tea_ingrediant_page"
         tools:layout="@layout/fragment_tea_ingrediant_page" />
+    <fragment
+        android:id="@+id/about_page"
+        android:name="buu.informatics.s59160625.aunzcoffee.AboutPage"
+        android:label="fragment_about_page"
+        tools:layout="@layout/fragment_about_page" />
 </navigation>
