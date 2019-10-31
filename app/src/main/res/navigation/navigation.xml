@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/title_page">
+    <fragment
+        android:id="@+id/title_page"
+        android:name="buu.informatics.s59160625.aunzcoffee.TitlePage"
+        android:label="AuNzCoffee"
+        tools:layout="@layout/fragment_title_page">
+        <action
+            android:id="@+id/action_title_page_to_coffeeList_page"
+            app:destination="@id/coffeeList_page" />
+        <action
+            android:id="@+id/action_title_page_to_tea_list"
+            app:destination="@id/tea_list" />
+    </fragment>
+    <fragment
+        android:id="@+id/coffeeList_page"
+        android:name="buu.informatics.s59160625.aunzcoffee.CoffeeListPage"
+        android:label="สูตรกาแฟ"
+        tools:layout="@layout/fragment_coffee_list_page" >
+        <action
+            android:id="@+id/action_coffeeList_page_to_coffeeIngrediant_page"
+            app:destination="@id/coffeeIngrediant_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/coffeeIngrediant_page"
+        android:name="buu.informatics.s59160625.aunzcoffee.CoffeeIngrediantPage"
+        android:label="คาปูชิโน่"
+        tools:layout="@layout/fragment_coffee_ingrediant_page" />
+    <fragment
+        android:id="@+id/tea_list"
+        android:name="buu.informatics.s59160625.aunzcoffee.TeaListPage"
+        android:label="สูตรชา"
+        tools:layout="@layout/fragment_tea_list_page" >
+        <action
+            android:id="@+id/action_tea_list_to_tea_ingrediant_page"
+            app:destination="@id/tea_ingrediant_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/tea_ingrediant_page"
+        android:name="buu.informatics.s59160625.aunzcoffee.tea_ingrediant_page"
+        android:label="fragment_tea_ingrediant_page"
+        tools:layout="@layout/fragment_tea_ingrediant_page" />
+</navigation>
