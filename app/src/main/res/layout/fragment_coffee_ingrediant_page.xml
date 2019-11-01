@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CoffeeIngrediantPage">
+    tools:context=".Screens.CoffeeIngrediant.CoffeeIngrediantPage">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
@@ -22,16 +22,25 @@
                 android:id="@+id/ingrediantText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:text="ส่วนประกอบ"
+                android:text="@string/coffee_name_title"
+                android:textSize="@dimen/titleIngredaint_size" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/ingrediant_text_title"
                 android:textSize="@dimen/titleIngredaint_size" />
 
             <TextView
                 android:id="@+id/brewText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="250dp"
                 android:text="@string/brew_title_string"
                 android:textSize="@dimen/titleIngredaint_size" />

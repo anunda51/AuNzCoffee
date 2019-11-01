@@ -11,4 +11,7 @@
     <string name="capuchino_button">คาปูชิโน่</string>
     <string name="share_coffee_text">Hello!! %1$s</string>
     <string name="share_item" />
+    <string name="coffee_text">coffee</string>
+    <string name="coffee_name_title">Coffee Name</string>
+    <string name="ingrediant_text_title">ส่วนประกอบ</string>
 </resources>

@@ -18,8 +18,6 @@ import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeListPageBi
  */
 class CoffeeListPage : Fragment() {
     private lateinit var viewModel: CoffeeListViewModel
-    var num = 0
-    var name = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

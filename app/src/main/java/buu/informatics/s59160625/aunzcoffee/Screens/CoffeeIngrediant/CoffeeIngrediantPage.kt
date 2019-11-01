@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee
+package buu.informatics.s59160625.aunzcoffee.Screens.CoffeeIngrediant
 
 
 import android.content.Intent
@@ -6,13 +6,15 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import buu.informatics.s59160625.aunzcoffee.R
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeIngrediantPageBinding
-import buu.informatics.s59160625.aunzcoffee.databinding.FragmentTitlePageBinding
 
 /**
  * A simple [Fragment] subclass.
  */
 class CoffeeIngrediantPage : Fragment() {
+    private lateinit var viewModel: CoffeeIngrediantViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,8 +22,12 @@ class CoffeeIngrediantPage : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentCoffeeIngrediantPageBinding>(inflater,
             R.layout.fragment_coffee_ingrediant_page,container, false)
+        viewModel = ViewModelProviders.of(this).get(CoffeeIngrediantViewModel::class.java)
+
+        //***Call Argument***///
         val args = CoffeeIngrediantPageArgs.fromBundle(arguments!!)
-        binding.ingrediantText.text = args.coffeeName
+
+        binding.ingrediantText.text = args.coffeeName ///***Use Argument***///
         setHasOptionsMenu(true)
         return binding.root
     }
