@@ -1,14 +1,17 @@
-package buu.informatics.s59160625.aunzcoffee.Screens.Title
+package buu.informatics.s59160625.aunzcoffee.screens.title
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160625.aunzcoffee.R
+import buu.informatics.s59160625.aunzcoffee.database.CoffeeDatabase
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentTitlePageBinding
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +24,13 @@ class TitlePage : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentTitlePageBinding>(inflater,
             R.layout.fragment_title_page,container, false)
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = CoffeeDatabase.getInstance(application).coffeeDatabaseDao
+        val viewModelFactory = TitleViewModelFactory(dataSource, application)
+        val titleViewModel = ViewModelProviders.of(this, viewModelFactory).get(TitleViewModel::class.java)
+        binding.titleViewModel = titleViewModel
+
         binding.titleBtnCoffee.setOnClickListener {view ->
             view.findNavController().navigate(R.id.action_title_page_to_coffeeList_page)
         }

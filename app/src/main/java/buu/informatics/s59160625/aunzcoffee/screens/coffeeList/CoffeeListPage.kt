@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee.Screens.CoffeeList
+package buu.informatics.s59160625.aunzcoffee.screens.coffeeList
 
 
 import android.os.Bundle
@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import buu.informatics.s59160625.aunzcoffee.R
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeListPageBinding
-
 /**
  * A simple [Fragment] subclass.
  */
@@ -26,6 +25,11 @@ class CoffeeListPage : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentCoffeeListPageBinding>(inflater,
             R.layout.fragment_coffee_list_page,container, false)
+
+//        val application = requireNotNull(this.activity).application
+//        val dataSource = CoffeeDatabase.getInstance(application).coffeeDatabaseDao
+//        val viewModelFactory = CoffeeListViewModelFactory(dataSource, application)
+
         viewModel = ViewModelProviders.of(this).get(CoffeeListViewModel::class.java)
         binding.apply {
             button.text = viewModel.coffeeList[0]

@@ -2,7 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Screens.Title.TitlePage">
+    tools:context=".screens.title.TitlePage">
+    <data>
+        <variable
+            name="titleViewModel"
+            type="buu.informatics.s59160625.aunzcoffee.screens.title.TitleViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"

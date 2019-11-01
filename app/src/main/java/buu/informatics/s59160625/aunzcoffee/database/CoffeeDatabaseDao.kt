@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee.Database
+package buu.informatics.s59160625.aunzcoffee.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -7,14 +7,14 @@ import androidx.room.Query
 import androidx.room.Update
 
 @Dao
-interface DatabaseDao {
+interface CoffeeDatabaseDao {
     @Insert
     fun insert(coffee: Coffee)
 
     @Update
     fun update(coffee: Coffee)
 
-    @Query("SELECT * FROM coffee_table WHERE coffeeId = :key")
+    @Query("SELECT * from coffee_table WHERE coffeeId = :key")
     fun  get(key: Long): Coffee
 
     @Query("DELETE FROM coffee_table")

@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee.Database
+package buu.informatics.s59160625.aunzcoffee.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -12,5 +12,4 @@ data class Coffee (
     @ColumnInfo(name = "coffee_name")
     var coffeeName: String = "Cappuccino"
 )
-
 

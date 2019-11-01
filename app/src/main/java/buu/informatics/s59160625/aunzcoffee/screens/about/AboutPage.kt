@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee.Screens.About
+package buu.informatics.s59160625.aunzcoffee.screens.about
 
 
 import android.os.Bundle

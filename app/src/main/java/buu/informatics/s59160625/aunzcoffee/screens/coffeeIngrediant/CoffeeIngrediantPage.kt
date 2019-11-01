@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee.Screens.CoffeeIngrediant
+package buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant
 
 
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160625.aunzcoffee.R
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeIngrediantPageBinding
 
@@ -14,7 +13,7 @@ import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeIngrediant
  * A simple [Fragment] subclass.
  */
 class CoffeeIngrediantPage : Fragment() {
-    private lateinit var viewModel: CoffeeIngrediantViewModel
+//    private lateinit var viewModel: CoffeeIngrediantViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,8 +21,12 @@ class CoffeeIngrediantPage : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentCoffeeIngrediantPageBinding>(inflater,
             R.layout.fragment_coffee_ingrediant_page,container, false)
-        viewModel = ViewModelProviders.of(this).get(CoffeeIngrediantViewModel::class.java)
-
+//        val application = requireNotNull(this.activity).application
+//        val dataSource = CoffeeDatabase.getInstance(application).coffeeDatabaseDao
+//        val viewModelFactory = CoffeeIngrediantViewModelFactory(dataSource, application)
+//        val coffeeIngrediantViewModel = ViewModelProviders.of(this, viewModelFactory).get(CoffeeIngrediantViewModel::class.java)
+//        binding.setLifecycleOwner(this)
+//        binding.coffeeIngrediantViewModel = coffeeIngrediantViewModel
         //***Call Argument***///
         val args = CoffeeIngrediantPageArgs.fromBundle(arguments!!)
 

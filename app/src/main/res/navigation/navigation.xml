@@ -6,7 +6,7 @@
     app:startDestination="@id/title_page">
     <fragment
         android:id="@+id/title_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.Screens.Title.TitlePage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.title.TitlePage"
         android:label="AuNzCoffee"
         tools:layout="@layout/fragment_title_page">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/coffeeList_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.Screens.CoffeeList.CoffeeListPage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.coffeeList.CoffeeListPage"
         android:label="สูตรกาแฟ"
         tools:layout="@layout/fragment_coffee_list_page" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/coffeeIngrediant_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.Screens.CoffeeIngrediant.CoffeeIngrediantPage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant.CoffeeIngrediantPage"
         android:label="รายละเอียดการชง"
         tools:layout="@layout/fragment_coffee_ingrediant_page">
         <argument
@@ -50,7 +50,7 @@
         tools:layout="@layout/fragment_tea_ingrediant_page" />
     <fragment
         android:id="@+id/about_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.Screens.About.AboutPage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.about.AboutPage"
         android:label="About"
         tools:layout="@layout/fragment_about_page" />
 </navigation>
