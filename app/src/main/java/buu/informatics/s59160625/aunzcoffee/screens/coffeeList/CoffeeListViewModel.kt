@@ -11,6 +11,12 @@ class CoffeeListViewModel : ViewModel(){
         "มอคค่า",
         "เอสเปรสโซ่",
         "อเมริกาโน่")
+
+    var teaList = arrayOf("ชานม",
+        "ชาเขียว",
+        "ชามะลิ",
+        "ชาดำ",
+        "ชาไทย")
 //    private val coffee = coffeeDatabase.getAllCoffees()
 
 //    val coffeeString = Transformations.map(coffee) { coffee ->
