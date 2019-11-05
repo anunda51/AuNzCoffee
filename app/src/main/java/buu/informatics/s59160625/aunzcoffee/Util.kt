@@ -51,7 +51,7 @@ package buu.informatics.s59160625.aunzcoffee
  * @return  Spanned - An interface for text that has formatting attached to it.
  *           See: https://developer.android.com/reference/android/text/Spanned
  */
-//fun formatCoffee(nights: List<Coffee>, resources: Resources): Spanned {
+//fun formatCoffee(nights: List<MyCoffee>, resources: Resources): Spanned {
 //    val sb = StringBuilder()
 //    sb.apply {
 //        append(resources.getString(R.string.coffee_name_title))

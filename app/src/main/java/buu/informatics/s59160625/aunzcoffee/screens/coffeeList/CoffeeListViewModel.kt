@@ -2,36 +2,27 @@ package buu.informatics.s59160625.aunzcoffee.screens.coffeeList
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import buu.informatics.s59160625.aunzcoffee.data.MyCoffee
+import buu.informatics.s59160625.aunzcoffee.data.MyTea
 
 class CoffeeListViewModel : ViewModel(){
-    var num = 0
-    var name = ""
-    var coffeeList = arrayOf("คาปูชิโน่",
-        "ลาเต้",
-        "มอคค่า",
-        "เอสเปรสโซ่",
-        "อเมริกาโน่")
 
-    var teaList = arrayOf("ชานม",
-        "ชาเขียว",
-        "ชามะลิ",
-        "ชาดำ",
-        "ชาไทย")
-//    private val coffee = coffeeDatabase.getAllCoffees()
+    var coffeeList = listOf(MyCoffee("คาปูชิโน่"),
+        MyCoffee("ลาเต้"),
+        MyCoffee("มอคค่า"),
+        MyCoffee("เอสเปรสโซ่"),
+        MyCoffee("อเมริกาโน่")
+    )
 
-//    val coffeeString = Transformations.map(coffee) { coffee ->
-//        formatCoffee(coffee, application.resources)
-//    }
+    var teaList = listOf(MyTea("ชานม"),
+        MyTea("ชาเขียว"),
+        MyTea("ชามะลิ"),
+        MyTea("ชาดำ"),
+        MyTea("ชาไทย"))
+
     override fun onCleared() {
         super.onCleared()
         Log.i("CoffeeListViewModel", "CoffeeListViewModel destroyed!")
     }
 
-    fun checkOnClick(){
-        if (num==1){ name = coffeeList[0] }
-        if (num==2){ name = coffeeList[1] }
-        if (num==3){ name = coffeeList[2] }
-        if (num==4){ name = coffeeList[3] }
-        if (num==5){ name = coffeeList[4] }
-    }
 }
