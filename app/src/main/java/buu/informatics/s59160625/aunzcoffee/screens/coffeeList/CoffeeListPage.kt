@@ -25,10 +25,17 @@ class CoffeeListPage : Fragment() {
             R.layout.fragment_coffee_list_page,container, false)
         viewModel = ViewModelProviders.of(this).get(CoffeeListViewModel::class.java)
 
-        val adapter = CoffeeListAdapter()
-        adapter.replaceItems(viewModel.coffeeList)
-        binding.coffeeListRecycleView.adapter = adapter
+        val args = CoffeeListPageArgs.fromBundle(arguments!!)
 
+        if(args.numBtn == 1){
+            val adapter = CoffeeListAdapter()
+            adapter.replaceItems(viewModel.coffeeList)
+            binding.coffeeListRecycleView.adapter = adapter
+        }else{
+            val adapter = TeaListAdapter()
+            adapter.replaceTeaItems(viewModel.teaList)
+            binding.coffeeListRecycleView.adapter = adapter
+        }
         return binding.root
     }
 

@@ -2,7 +2,6 @@ package buu.informatics.s59160625.aunzcoffee.screens.title
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -28,14 +27,16 @@ class TitlePage : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = CoffeeDatabase.getInstance(application).coffeeDatabaseDao
         val viewModelFactory = TitleViewModelFactory(dataSource, application)
-        val titleViewModel = ViewModelProviders.of(this, viewModelFactory).get(TitleViewModel::class.java)
-        binding.titleViewModel = titleViewModel
+        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(TitleViewModel::class.java)
+        binding.titleViewModel = viewModel
 
         binding.titleBtnCoffee.setOnClickListener {view ->
-            view.findNavController().navigate(R.id.action_title_page_to_coffeeList_page)
+            viewModel.checktBtn = 1
+            view.findNavController().navigate(TitlePageDirections.actionTitlePageToCoffeeListPage(numBtn = viewModel.checktBtn))
         }
         binding.titleBtnTea.setOnClickListener {view ->
-            view.findNavController().navigate(R.id.action_title_page_to_tea_list)
+            viewModel.checktBtn = 2
+            view.findNavController().navigate(TitlePageDirections.actionTitlePageToCoffeeListPage(numBtn = viewModel.checktBtn))
         }
         setHasOptionsMenu(true)
         Toast.makeText(context,"หน้าแรก",Toast.LENGTH_LONG).show()

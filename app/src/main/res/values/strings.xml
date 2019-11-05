@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="brew_title_string">วิธีชง</string>
+    <string name="brew_title_string">วิธีการชง</string>
     <string name="project_name_string">AuNzCoffee</string>
     <string name="about_detail_string">ระบบ \"AuNzCoffee\" เป็นระบบที่ถูกพัฒนาเพื่อเป็นตัวช่วยในการจดจำสูตรการชงกาแฟและชาต่างๆสำหรับผู้ที่ต้องการเปิดกิจการร้านกาแฟในอนาคต หรือสำหรับบุคคลทั่วไปที่ต้องการมีไว้ติดครัวเรือนที่บ้านก็ได้</string>
     <string name="about_string">About</string>
@@ -14,4 +14,5 @@
     <string name="coffee_text">coffee</string>
     <string name="coffee_name_title">Coffee Name</string>
     <string name="ingrediant_text_title">ส่วนประกอบ</string>
+    <string name="ingrediant_text">Ingrediant</string>
 </resources>

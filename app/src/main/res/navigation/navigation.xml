@@ -12,18 +12,18 @@
         <action
             android:id="@+id/action_title_page_to_coffeeList_page"
             app:destination="@id/coffeeList_page" />
-        <action
-            android:id="@+id/action_title_page_to_tea_list"
-            app:destination="@id/tea_list" />
     </fragment>
     <fragment
         android:id="@+id/coffeeList_page"
         android:name="buu.informatics.s59160625.aunzcoffee.screens.coffeeList.CoffeeListPage"
-        android:label="สูตรกาแฟ"
-        tools:layout="@layout/fragment_coffee_list_page" >
+        android:label="เลือกประเภท"
+        tools:layout="@layout/fragment_coffee_list_page">
         <action
             android:id="@+id/action_coffeeList_page_to_coffeeIngrediant_page"
             app:destination="@id/coffeeIngrediant_page" />
+        <argument
+            android:name="numBtn"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/coffeeIngrediant_page"
@@ -34,20 +34,6 @@
             android:name="coffeeName"
             app:argType="string" />
     </fragment>
-    <fragment
-        android:id="@+id/tea_list"
-        android:name="buu.informatics.s59160625.aunzcoffee.TeaListPage"
-        android:label="สูตรชา"
-        tools:layout="@layout/fragment_tea_list_page" >
-        <action
-            android:id="@+id/action_tea_list_to_tea_ingrediant_page"
-            app:destination="@id/tea_ingrediant_page" />
-    </fragment>
-    <fragment
-        android:id="@+id/tea_ingrediant_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.TeaIngrediantPage"
-        android:label="fragment_tea_ingrediant_page"
-        tools:layout="@layout/fragment_tea_ingrediant_page" />
     <fragment
         android:id="@+id/about_page"
         android:name="buu.informatics.s59160625.aunzcoffee.screens.about.AboutPage"
