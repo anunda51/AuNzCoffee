@@ -28,9 +28,15 @@ class CoffeeIngrediantPage : Fragment() {
 
         binding.ingrediantText.text = args.coffeeName ///***Use Argument***///
 
+        viewModel.checkCoffeeToGetIngrediant(args.coffeeName)
+
         val adapter = IngrediantAdapter()
         adapter.replaceItems(viewModel.ingrediantName)
         binding.ingrediantRecycleView.adapter = adapter
+
+        val adapter2 = BrewAdapter()
+        adapter2.replaceBrew(viewModel.brewing)
+        binding.brewRecycleView.adapter = adapter2
 
         setHasOptionsMenu(true)
         return binding.root

@@ -15,4 +15,6 @@
     <string name="coffee_name_title">Coffee Name</string>
     <string name="ingrediant_text_title">ส่วนประกอบ</string>
     <string name="ingrediant_text">Ingrediant</string>
+    <string name="num_ingrediant">num</string>
+    <string name="brew_text">Brewing</string>
 </resources>

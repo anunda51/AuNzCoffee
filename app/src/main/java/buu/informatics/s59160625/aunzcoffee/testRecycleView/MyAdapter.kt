@@ -33,7 +33,6 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>(){
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
         val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
-//        val sourceTextView: TextView = itemView.findViewById(R.id.sourceTextView)
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {

@@ -1,16 +1,16 @@
 package buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant
 
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import buu.informatics.s59160625.aunzcoffee.R
-import buu.informatics.s59160625.aunzcoffee.data.MyIngrediant
+import buu.informatics.s59160625.aunzcoffee.data.MyBrewing
 
-class IngrediantAdapter: RecyclerView.Adapter<IngrediantAdapter.ViewHolder>() {
-    var data = listOf<MyIngrediant>()
+class BrewAdapter: RecyclerView.Adapter<BrewAdapter.ViewHolder>() {
+    var data = listOf<MyBrewing>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -22,24 +22,23 @@ class IngrediantAdapter: RecyclerView.Adapter<IngrediantAdapter.ViewHolder>() {
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.ingrediantNum.text = (position+1).toString()
-        holder.ingrediantName.text = data[position].ingrediant_name
+        holder.brewNum.text = (position+1).toString()
+        holder.brewing.text = data[position].brewing
     }
 
-    fun replaceItems(items: List<MyIngrediant>) {
+    fun replaceBrew(items: List<MyBrewing>) {
         this.data = items
-        Log.i("checkItem",items.toString())
     }
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val ingrediantNum : TextView = itemView.findViewById(R.id.num)
-        val ingrediantName : TextView = itemView.findViewById(R.id.ingrediantText)
+        val brewNum : TextView = itemView.findViewById(R.id.numBrew)
+        val brewing : TextView = itemView.findViewById(R.id.brewText)
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val view = layoutInflater
-                    .inflate(R.layout.ingrediant_list_item, parent, false)
+                    .inflate(R.layout.brew_list_item, parent, false)
 
                 return ViewHolder(view)
             }
