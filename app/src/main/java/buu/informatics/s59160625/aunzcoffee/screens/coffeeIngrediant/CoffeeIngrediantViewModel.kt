@@ -9,7 +9,6 @@ class CoffeeIngrediantViewModel: ViewModel() {
     var brewing = listOf<MyBrewing>()
 
     fun checkCoffeeToGetIngrediant(item: String){
-//        Log.i("checkCoffee",coffee.size.toString())
         if(item === "คาปูชิโน่"){
             ingrediantName = listOf(
                 MyIngrediant("เมล็ดกาแฟชนิดคั่วระดับเข้ม 8 กรัม (สำหรับ 1 ช็อต)"),

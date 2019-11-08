@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160625.aunzcoffee.R
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeListPageBinding
@@ -28,13 +29,17 @@ class CoffeeListPage : Fragment() {
         val args = CoffeeListPageArgs.fromBundle(arguments!!)
 
         if(args.numBtn == 1){
-            val adapter = CoffeeListAdapter()
-            adapter.replaceItems(viewModel.coffeeList)
-            binding.coffeeListRecycleView.adapter = adapter
+            viewModel.coffee.observe(this, Observer { setData ->
+                val adapter = CoffeeListAdapter()
+                adapter.replaceItems(setData)
+                binding.coffeeListRecycleView.adapter = adapter
+            })
         }else{
-            val adapter = TeaListAdapter()
-            adapter.replaceTeaItems(viewModel.teaList)
-            binding.coffeeListRecycleView.adapter = adapter
+            viewModel.tea.observe(this, Observer { setData ->
+                val adapter = TeaListAdapter()
+                adapter.replaceTeaItems(setData)
+                binding.coffeeListRecycleView.adapter = adapter
+            })
         }
         return binding.root
     }

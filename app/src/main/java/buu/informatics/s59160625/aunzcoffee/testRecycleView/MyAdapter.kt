@@ -22,7 +22,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.contentTextView.text = data[position].content
-//        holder.sourceTextView.text = data[position].source
+//        holder.sourceTextView.text = _data[position].source
     }
 
     fun replaceItems(items: List<MyData>) {

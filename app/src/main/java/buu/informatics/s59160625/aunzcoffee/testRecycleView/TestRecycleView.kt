@@ -30,7 +30,7 @@ class TestRecycleView : Fragment() {
 
 //      myViewModel.itemss.observe(viewLifecycleOwner, Observer {
 //      it?.let {
-//          adapter.data =
+//          adapter._data =
 //        }
 //      })
         return binding.root

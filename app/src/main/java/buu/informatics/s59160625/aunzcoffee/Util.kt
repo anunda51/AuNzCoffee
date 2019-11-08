@@ -43,7 +43,7 @@ package buu.informatics.s59160625.aunzcoffee
  *
  * For display in a TextView, we have to supply one string, and styles are per TextView, not
  * applicable per word. So, we build a formatted string using HTML. This is handy, but we will
- * learn a better way of displaying this data in a future lesson.
+ * learn a better way of displaying this _data in a future lesson.
  *
  * @param   nights - List of all SleepNights in the coffeeDatabase.
  * @param   resources - Resources object for all the resources defined for our app.
