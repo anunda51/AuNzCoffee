@@ -10,6 +10,6 @@ data class Coffee (
     var coffeeId: Long = 0L,
 
     @ColumnInfo(name = "coffee_name")
-    var coffeeName: String = "Cappuccino"
+    var coffeeName: String = ""
 )
 

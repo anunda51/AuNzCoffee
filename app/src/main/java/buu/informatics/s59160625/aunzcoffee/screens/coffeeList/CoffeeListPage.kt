@@ -17,11 +17,11 @@ import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeListPageBi
  */
 class CoffeeListPage : Fragment() {
     private lateinit var viewModel: CoffeeListViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding = DataBindingUtil.inflate<FragmentCoffeeListPageBinding>(inflater,
             R.layout.fragment_coffee_list_page,container, false)
         viewModel = ViewModelProviders.of(this).get(CoffeeListViewModel::class.java)
@@ -29,10 +29,12 @@ class CoffeeListPage : Fragment() {
         val args = CoffeeListPageArgs.fromBundle(arguments!!)
 
         if(args.numBtn == 1){
-            viewModel.coffee.observe(this, Observer { setData ->
+            viewModel.coffee.observe(this, Observer {
                 val adapter = CoffeeListAdapter()
-                adapter.replaceItems(setData)
                 binding.coffeeListRecycleView.adapter = adapter
+                it?.let {
+                    adapter.data = it
+                }
             })
         }else{
             viewModel.tea.observe(this, Observer { setData ->
@@ -41,6 +43,7 @@ class CoffeeListPage : Fragment() {
                 binding.coffeeListRecycleView.adapter = adapter
             })
         }
+        binding.setLifecycleOwner(this)
         return binding.root
     }
 

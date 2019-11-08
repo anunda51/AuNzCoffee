@@ -2,6 +2,7 @@ package buu.informatics.s59160625.aunzcoffee.screens.title
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
