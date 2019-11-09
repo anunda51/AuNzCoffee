@@ -1,12 +1,63 @@
 package buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant
 
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import buu.informatics.s59160625.aunzcoffee.data.MyBrewing
 import buu.informatics.s59160625.aunzcoffee.data.MyIngrediant
+import buu.informatics.s59160625.aunzcoffee.database.Coffee
+import buu.informatics.s59160625.aunzcoffee.database.CoffeeDatabaseDao
+import kotlinx.coroutines.*
 
-class CoffeeIngrediantViewModel: ViewModel() {
+class CoffeeIngrediantViewModel(coffeeDatabase: CoffeeDatabaseDao,
+                                application: Application
+    ) : AndroidViewModel(application) {
+
+    val database = coffeeDatabase
+    private var viewModelJob = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    private var coffee = MutableLiveData<Coffee?>()
+
+    val allCoffee = database.getAllCoffees()
+
+    init {
+        initializeTonight()
+    }
+
+    private fun initializeTonight() {
+        uiScope.launch {
+            coffee.value = getCoffeeFromDatabase()
+        }
+    }
+
+    private suspend fun getCoffeeFromDatabase(): Coffee? {
+        return withContext(Dispatchers.IO) {
+            var data = database.getLastCoffee()
+            data
+
+        }
+    }
+
+    private suspend fun insertToDatabase(coffee: Coffee){
+        withContext(Dispatchers.IO) {
+            database.insert(coffee)
+        }
+    }
+
+    fun insert(item : String) {
+        uiScope.launch {
+            var newCoffee = Coffee()
+            newCoffee.coffeeName = item
+
+            insertToDatabase(newCoffee)
+
+            coffee.value = getCoffeeFromDatabase()
+        }
+    }
 
     private val _ingredientName = MutableLiveData<List<MyIngrediant>>()
     val ingredientName: LiveData<List<MyIngrediant>>
@@ -17,7 +68,8 @@ class CoffeeIngrediantViewModel: ViewModel() {
         get() = _brewing
 
     fun checkCoffeeToGetIngredient(item: String){
-        if(item === "คาปูชิโน่"){
+        Log.i("args",item)
+        if(item == "คาปูชิโน่"){
             _ingredientName.value = listOf(
                 MyIngrediant("เมล็ดกาแฟชนิดคั่วระดับเข้ม 8 กรัม (สำหรับ 1 ช็อต)"),
                 MyIngrediant("น้ำ 2 ออนซ์"),
@@ -33,7 +85,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("โรยบนฟองนมด้วยผงอบเชยเล็กน้อย เป็นอันสำเร็จค่ะ")
             )
         }
-        if(item === "ลาเต้"){
+        if(item == "ลาเต้"){
             _ingredientName.value = listOf(
                 MyIngrediant("กาแฟสดแบบเมล็ดหรือแบบผง"),
                 MyIngrediant("นมสดรสจืด"),
@@ -47,7 +99,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("คนให้เข้ากัน")
             )
         }
-        if(item === "มอคค่า"){
+        if(item == "มอคค่า"){
             _ingredientName.value = listOf(
                 MyIngrediant("กาแฟเอสเปรสโซ่ 30 มิลลิลิตร"),
                 MyIngrediant("ผงโกโก้ 1 ช้อนชา"),
@@ -60,7 +112,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("เทกาแฟเอสเปรสโซ่ลงไป (อาจจะบีบวิปครีมหรือใส่ฟองนมลงไปด้านบนเพิ่มก็ได้)")
             )
         }
-        if(item === "เอสเพรสโซ่"){
+        if(item == "เอสเพรสโซ่"){
             _ingredientName.value = listOf(
                 MyIngrediant("เอสเปรสโซ่กลั่น 3 ออนซ์"),
                 MyIngrediant("นมข้นหวาน 1 ออนซ์"),
@@ -74,7 +126,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("นำนมสดเย็นตีให้ขึ้นฟอง ตักฟองนมราดด้านบน")
             )
         }
-        if(item === "อเมริกาโน่"){
+        if(item == "อเมริกาโน่"){
             _ingredientName.value = listOf(
                 MyIngrediant("ช็อตเอสเปรสโซ 1 ช็อต (30 ซีซี)"),
                 MyIngrediant("น้ำร้อน 4 ออนซ์ (120 ซีซี)")
@@ -84,7 +136,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("ด้วยช็อตเอสเปรสโซ 1 ช็อต ครีมม่า ที่เป็นฟองคล้ายฟองนมจะลอยอยู่ด้านบน")
             )
         }
-        if(item === "ชานม"){
+        if(item == "ชานม"){
             _ingredientName.value = listOf(
                 MyIngrediant("ผงชาไทย 5 ช้อนโต๊ะ"),
                 MyIngrediant("น้ำต้มเดือด 2 1/2 ถ้วย"),
@@ -101,7 +153,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("เราดนมข้นจืดลงไป พร้อมเสิร์ฟ")
             )
         }
-        if(item === "ชาเขียว"){
+        if(item == "ชาเขียว"){
             _ingredientName.value = listOf(
                 MyIngrediant("ผงชาเขียวตรามือ 4 ช้อนโต๊ะ"),
                 MyIngrediant("น้ำร้อน 750 ml."),
@@ -119,7 +171,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("เทน้ำชาเขียวลงไป")
             )
         }
-        if(item === "ชามะลิ"){
+        if(item == "ชามะลิ"){
             _ingredientName.value = listOf(
                 MyIngrediant("ใบชาเขียวมะลิ 5 ช้อนชา"),
                 MyIngrediant("น้ำเชื่อม อ่านต่อได้ที่"),
@@ -132,7 +184,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("ทำซ้ำแบบเดิมจนกว่าใบชาจะต้มครบ 5 รอบหรือตามต้องการ แล้วเทใส่เหยือกเก็บไว้กินวันอื่นได้อีกหลายรอบ")
             )
         }
-        if(item === "ชาดำ"){
+        if(item == "ชาดำ"){
             _ingredientName.value = listOf(
                 MyIngrediant("ชาตรามือ หรือยี่ห้ออื่นก็ได้"),
                 MyIngrediant("ถุงกรองชา แบบมีด้ามจับ หรือ ผ้าขาวบางก็ได้ เอาไว้กรองกากชา"),
@@ -146,7 +198,7 @@ class CoffeeIngrediantViewModel: ViewModel() {
                 MyBrewing("เทชาจากหม้อใบแรกที่ชาผสมไว้ ลงบนถุงกรองกากชาหรือผ้าขาว เทกลับไปกลับมา 3-4 รอบ และแช่ทิ้งไว้ประมาณ 5 นาทีเพื่อให้ได้รสชาติของชาที่ฝาดนิดๆ")
             )
         }
-        if(item === "ชามะนาว"){
+        if(item == "ชามะนาว"){
             _ingredientName.value = listOf(
                 MyIngrediant("ชาดำเย็น ที่ปรุงรสแล้ว"),
                 MyIngrediant("มะนาว"),

@@ -3,13 +3,17 @@ package buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160625.aunzcoffee.R
+import buu.informatics.s59160625.aunzcoffee.database.CoffeeDatabase
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeIngrediantPageBinding
+import kotlinx.android.synthetic.main.fragment_coffee_ingrediant_page.*
 
 /**
  * A simple [Fragment] subclass.
@@ -22,15 +26,25 @@ class CoffeeIngredientFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentCoffeeIngrediantPageBinding>(inflater,
             R.layout.fragment_coffee_ingrediant_page,container, false)
-        val viewModel = ViewModelProviders.of(this).get(CoffeeIngrediantViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+        val dataSource = CoffeeDatabase.getInstance(application).coffeeDatabaseDao
+        val viewModelFactory = CoffeeIngrediantViewModelFactory(dataSource, application)
+        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(CoffeeIngrediantViewModel::class.java)
 
         //***Call Argument***///
         val args = CoffeeIngredientFragmentArgs.fromBundle(arguments!!)
-
         binding.ingrediantText.text = args.coffeeName ///***Use Argument***///
+        viewModel.allCoffee.observe(this, Observer {
+            Log.i("data",it.toString())
+            for (i in 0..it.size-1) {
+                if (it[i].coffeeName == args.coffeeName) {
+                    binding.addBtn.text = "คุณได้เพิ่มเป็นรายการโปรดแล้ว"
+                    binding.addBtn.isEnabled = false
+                }
+            }
+        })
 
         viewModel.checkCoffeeToGetIngredient(args.coffeeName)
-
         viewModel.ingredientName.observe(this, Observer {
             val adapter = IngrediantAdapter()
             binding.ingrediantRecycleView.adapter = adapter
@@ -46,6 +60,11 @@ class CoffeeIngredientFragment : Fragment() {
                 adapter2.data = it
             }
         })
+
+        binding.addBtn.setOnClickListener {
+            viewModel.insert(args.coffeeName)
+            Toast.makeText(context,"เพิ่มเป็นรายการโปรดเรียบร้อย",Toast.LENGTH_LONG).show()
+        }
 
 
         setHasOptionsMenu(true)

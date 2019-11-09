@@ -5,6 +5,6 @@
         android:id="@+id/about_page"
         android:title="@string/about_string" />
     <item
-        android:id="@+id/testRecycleView"
-        android:title="RecycleView" />
+        android:id="@+id/myFavorite"
+        android:title="My Favorite" />
 </menu>

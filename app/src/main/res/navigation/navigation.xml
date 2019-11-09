@@ -40,8 +40,12 @@
         android:label="About"
         tools:layout="@layout/fragment_about_page" />
     <fragment
-        android:id="@+id/testRecycleView"
-        android:name="buu.informatics.s59160625.aunzcoffee.testRecycleView.TestRecycleView"
-        android:label="RecycleView"
-        tools:layout="@layout/fragment_test_recycle_view" />
+        android:id="@+id/myFavorite"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.myFavorite.MyFavoriteFragment"
+        android:label="รายการโปรดของฉัน"
+        tools:layout="@layout/fragment_my_favorite" >
+        <action
+            android:id="@+id/action_myFavorite_to_coffeeIngrediant_page"
+            app:destination="@id/coffeeIngrediant_page" />
+    </fragment>
 </navigation>

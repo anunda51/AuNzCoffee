@@ -17,4 +17,7 @@
     <string name="ingrediant_text">Ingrediant</string>
     <string name="num_ingrediant">num</string>
     <string name="brew_text">Brewing</string>
+    <string name="add_button_text">เพิ่มเป็นรายการโปรด</string>
+    <string name="detail_text">รายละเอียด</string>
+    <string name="delete_all_text">ลบรายการทั้งหมด</string>
 </resources>
