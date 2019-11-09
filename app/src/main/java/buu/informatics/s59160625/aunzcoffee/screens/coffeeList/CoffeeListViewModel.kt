@@ -22,7 +22,7 @@ class CoffeeListViewModel : ViewModel(){
             MyCoffee("คาปูชิโน่"),
             MyCoffee("ลาเต้"),
             MyCoffee("มอคค่า"),
-            MyCoffee("เอสเปรสโซ่"),
+            MyCoffee("เอสเพรสโซ่"),
             MyCoffee("อเมริกาโน่")
         )
         _tea.value = listOf(
@@ -30,7 +30,7 @@ class CoffeeListViewModel : ViewModel(){
             MyTea("ชาเขียว"),
             MyTea("ชามะลิ"),
             MyTea("ชาดำ"),
-            MyTea("ชาไทย")
+            MyTea("ชามะนาว")
         )
     }
 
