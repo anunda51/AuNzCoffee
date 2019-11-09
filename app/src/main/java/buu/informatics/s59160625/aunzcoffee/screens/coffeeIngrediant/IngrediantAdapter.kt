@@ -1,6 +1,5 @@
 package buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,18 +21,19 @@ class IngrediantAdapter: RecyclerView.Adapter<IngrediantAdapter.ViewHolder>() {
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.ingrediantNum.text = (position+1).toString()
-        holder.ingrediantName.text = data[position].ingrediant_name
-    }
-
-    fun replaceItems(items: List<MyIngrediant>) {
-        this.data = items
-        Log.i("checkItem",items.toString())
+        val item = data[position]
+        holder.bind(item, position)
     }
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val ingrediantNum : TextView = itemView.findViewById(R.id.num)
-        val ingrediantName : TextView = itemView.findViewById(R.id.ingrediantText)
+        private val ingrediantNum : TextView = itemView.findViewById(R.id.num)
+        private val ingrediantName : TextView = itemView.findViewById(R.id.ingrediantText)
+
+
+        fun bind(item: MyIngrediant, position: Int) {
+            ingrediantNum.text = (position+1).toString()
+            ingrediantName.text = item.ingrediant_name
+        }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {

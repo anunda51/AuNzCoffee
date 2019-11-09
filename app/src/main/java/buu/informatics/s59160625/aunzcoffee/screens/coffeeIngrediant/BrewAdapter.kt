@@ -22,17 +22,18 @@ class BrewAdapter: RecyclerView.Adapter<BrewAdapter.ViewHolder>() {
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.brewNum.text = (position+1).toString()
-        holder.brewing.text = data[position].brewing
-    }
-
-    fun replaceBrew(items: List<MyBrewing>) {
-        this.data = items
+        val item = data[position]
+        holder.bind(item, position)
     }
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val brewNum : TextView = itemView.findViewById(R.id.numBrew)
-        val brewing : TextView = itemView.findViewById(R.id.brewText)
+        private val brewNum : TextView = itemView.findViewById(R.id.numBrew)
+        private val brewing : TextView = itemView.findViewById(R.id.brewText)
+
+        fun bind(item: MyBrewing, position: Int) {
+            brewNum.text = (position+1).toString()
+            brewing.text = item.brewing
+        }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {

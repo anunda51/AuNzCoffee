@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160625.aunzcoffee.R
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeIngrediantPageBinding
@@ -13,7 +14,7 @@ import buu.informatics.s59160625.aunzcoffee.databinding.FragmentCoffeeIngrediant
 /**
  * A simple [Fragment] subclass.
  */
-class CoffeeIngrediantPage : Fragment() {
+class CoffeeIngredientFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,19 +25,28 @@ class CoffeeIngrediantPage : Fragment() {
         val viewModel = ViewModelProviders.of(this).get(CoffeeIngrediantViewModel::class.java)
 
         //***Call Argument***///
-        val args = CoffeeIngrediantPageArgs.fromBundle(arguments!!)
+        val args = CoffeeIngredientFragmentArgs.fromBundle(arguments!!)
 
         binding.ingrediantText.text = args.coffeeName ///***Use Argument***///
 
-        viewModel.checkCoffeeToGetIngrediant(args.coffeeName)
+        viewModel.checkCoffeeToGetIngredient(args.coffeeName)
 
-        val adapter = IngrediantAdapter()
-        adapter.replaceItems(viewModel.ingrediantName)
-        binding.ingrediantRecycleView.adapter = adapter
+        viewModel.ingredientName.observe(this, Observer {
+            val adapter = IngrediantAdapter()
+            binding.ingrediantRecycleView.adapter = adapter
+            it?.let {
+                adapter.data = it
+            }
+        })
 
-        val adapter2 = BrewAdapter()
-        adapter2.replaceBrew(viewModel.brewing)
-        binding.brewRecycleView.adapter = adapter2
+        viewModel.brewing.observe(this, Observer {
+            val adapter2 = BrewAdapter()
+            binding.brewRecycleView.adapter = adapter2
+            it?.let {
+                adapter2.data = it
+            }
+        })
+
 
         setHasOptionsMenu(true)
         return binding.root

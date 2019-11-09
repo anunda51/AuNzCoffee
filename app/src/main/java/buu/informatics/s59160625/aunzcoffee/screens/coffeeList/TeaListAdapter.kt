@@ -22,18 +22,19 @@ class TeaListAdapter: RecyclerView.Adapter<TeaListAdapter.ViewHolder>(){
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.coffeeListBtn.text = data[position].tea_name
-        holder.coffeeListBtn.setOnClickListener {
-            it.findNavController().navigate(CoffeeListPageDirections.actionCoffeeListPageToCoffeeIngrediantPage(coffeeName = data.get(position).tea_name))
-        }
-    }
-
-    fun replaceTeaItems(items: List<MyTea>) {
-        this.data = items
+        val item = data[position]
+        holder.bind(item)
     }
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val coffeeListBtn : Button = itemView.findViewById(R.id.coffeeListBtn)
+        private val coffeeListBtn : Button = itemView.findViewById(R.id.coffeeListBtn)
+
+        fun bind(item: MyTea) {
+            coffeeListBtn.text = item.tea_name
+            coffeeListBtn.setOnClickListener {
+                it.findNavController().navigate(CoffeeListPageDirections.actionCoffeeListPageToCoffeeIngrediantPage(coffeeName = item.tea_name))
+            }
+        }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {

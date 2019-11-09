@@ -37,10 +37,12 @@ class CoffeeListPage : Fragment() {
                 }
             })
         }else{
-            viewModel.tea.observe(this, Observer { setData ->
+            viewModel.tea.observe(this, Observer {
                 val adapter = TeaListAdapter()
-                adapter.replaceTeaItems(setData)
                 binding.coffeeListRecycleView.adapter = adapter
+                it?.let {
+                    adapter.data = it
+                }
             })
         }
         binding.setLifecycleOwner(this)

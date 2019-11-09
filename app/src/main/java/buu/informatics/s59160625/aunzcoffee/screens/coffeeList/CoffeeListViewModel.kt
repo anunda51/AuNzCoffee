@@ -25,7 +25,8 @@ class CoffeeListViewModel : ViewModel(){
             MyCoffee("เอสเปรสโซ่"),
             MyCoffee("อเมริกาโน่")
         )
-        _tea.value = listOf(MyTea("ชานม"),
+        _tea.value = listOf(
+            MyTea("ชานม"),
             MyTea("ชาเขียว"),
             MyTea("ชามะลิ"),
             MyTea("ชาดำ"),
@@ -35,6 +36,7 @@ class CoffeeListViewModel : ViewModel(){
 
     init {
         setData()
+//        Log.i("checkData",coffee.value.toString())
     }
 
     override fun onCleared() {

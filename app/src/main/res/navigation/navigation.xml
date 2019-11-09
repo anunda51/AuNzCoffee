@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/coffeeIngrediant_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant.CoffeeIngrediantPage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant.CoffeeIngredientFragment"
         android:label="รายละเอียดการชง"
         tools:layout="@layout/fragment_coffee_ingrediant_page">
         <argument

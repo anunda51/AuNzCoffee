@@ -32,7 +32,6 @@ class TitleViewModel(coffeeDatabase: CoffeeDatabaseDao,
     private suspend fun getCoffeeFromDatabase(): Coffee? {
         return withContext(Dispatchers.IO) {
             var data = database.getLastCoffee()
-            Log.i("data",data.toString())
             data
 
         }
