@@ -74,7 +74,7 @@ class DetailViewModel(coffeeDatabase: CoffeeDatabaseDao,
             _brewing.value = listOf(
                 MyBrewing("Press กาแฟให้ได้ 2 Shot โดยใช้กาแฟ 1 Scoop หรือ 7-10 กรัม กับน้ำร้อนที่ 4 ออนซ์"),
                 MyBrewing("ใส่นมลงไปให้ได้ 2 เท่าของกาแฟที่ได้"),
-                MyBrewing("เใส่ไซรัป หรือน้ำตาลทราย"),
+                MyBrewing("เส่ไซรัป หรือน้ำตาลทราย"),
                 MyBrewing("คนให้เข้ากัน")
             )
         }

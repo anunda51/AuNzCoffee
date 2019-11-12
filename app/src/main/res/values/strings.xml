@@ -20,4 +20,7 @@
     <string name="add_button_text">เพิ่มเป็นรายการโปรด</string>
     <string name="detail_text">รายละเอียด</string>
     <string name="delete_all_text">ลบรายการทั้งหมด</string>
+    <string name="title_choose_text">เลือกรายการ</string>
+    <string name="coffee_choose_text">กาแฟ</string>
+    <string name="tea_choose">ชา</string>
 </resources>

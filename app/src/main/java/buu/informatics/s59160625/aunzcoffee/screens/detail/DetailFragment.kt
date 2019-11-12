@@ -2,6 +2,7 @@ package buu.informatics.s59160625.aunzcoffee.screens.detail
 
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -33,19 +34,20 @@ class DetailFragment : Fragment() {
         //***Call Argument***///
         val args = DetailFragmentArgs.fromBundle(arguments!!)
         binding.ingrediantText.text = args.coffeeName ///***Use Argument***///
+
         viewModel.checkCoffeeToGetIngredient(args.coffeeName)
 
+        val adapter = IngrediantAdapter()
+        binding.ingrediantRecycleView.adapter = adapter
         viewModel.ingredientName.observe(this, Observer {
-            val adapter = IngrediantAdapter()
-            binding.ingrediantRecycleView.adapter = adapter
             it?.let {
                 adapter.data = it
             }
         })
 
+        val adapter2 = BrewAdapter()
+        binding.brewRecycleView.adapter = adapter2
         viewModel.brewing.observe(this, Observer {
-            val adapter2 = BrewAdapter()
-            binding.brewRecycleView.adapter = adapter2
             it?.let {
                 adapter2.data = it
             }
@@ -53,9 +55,10 @@ class DetailFragment : Fragment() {
 
         viewModel.allCoffee.observe(this, Observer {
             Log.i("data",it.toString())
-            for (i in 0..it.size-1) {
-                if (it[i].coffeeName == args.coffeeName) {
+            for (element in it) {
+                if (element.coffeeName == args.coffeeName) {
                     binding.addBtn.text = "คุณได้เพิ่มเป็นรายการโปรดแล้ว"
+                    binding.addBtn.setBackgroundColor(Color.RED)
                     binding.addBtn.isEnabled = false
                 }
             }

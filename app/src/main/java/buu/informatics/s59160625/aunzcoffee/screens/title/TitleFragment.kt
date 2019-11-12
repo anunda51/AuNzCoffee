@@ -6,7 +6,9 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160625.aunzcoffee.R
 import buu.informatics.s59160625.aunzcoffee.databinding.FragmentTitleBinding

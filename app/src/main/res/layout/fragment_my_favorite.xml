@@ -7,10 +7,12 @@
             name="myFavoriteViewModel"
             type="buu.informatics.s59160625.aunzcoffee.screens.myFavorite.MyFavoriteViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout7"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#E8D270"
         tools:context="buu.informatics.s59160625.aunzcoffee.screens.myFavorite.MyFavoriteFragment">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -39,6 +41,6 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

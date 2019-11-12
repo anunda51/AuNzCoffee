@@ -26,13 +26,13 @@ class IngrediantAdapter: RecyclerView.Adapter<IngrediantAdapter.ViewHolder>() {
     }
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        private val ingrediantNum : TextView = itemView.findViewById(R.id.num)
-        private val ingrediantName : TextView = itemView.findViewById(R.id.ingrediantText)
+        private val ingredientNum : TextView = itemView.findViewById(R.id.num)
+        private val ingredientName : TextView = itemView.findViewById(R.id.ingrediantText)
 
 
         fun bind(item: MyIngrediant, position: Int) {
-            ingrediantNum.text = (position+1).toString()
-            ingrediantName.text = item.ingrediant_name
+            ingredientNum.text = (position+1).toString()
+            ingredientName.text = item.ingrediant_name
         }
 
         companion object {

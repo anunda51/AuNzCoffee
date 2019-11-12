@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -33,12 +34,27 @@ class MyFavortieAdapter : RecyclerView.Adapter<MyFavortieAdapter.ViewHolder>(){
     override fun getItemCount(): Int = data.size
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val coffeeName: TextView = itemView.findViewById(R.id.coffeeName)
-        val detailBtn: Button = itemView.findViewById(R.id.detailBtn)
+        private val coffeeName: TextView = itemView.findViewById(R.id.coffeeName)
+        private val coffeeImage: ImageView = itemView.findViewById(R.id.coffeeImage)
 
         fun bind(item: Coffee) {
             coffeeName.text = item.coffeeName
-            detailBtn.setOnClickListener {
+//            when (item.coffeeName){
+//                "คาปูชิโน่" -> coffeeImage.setImageResource(R.drawable.capu)
+//                "ลาเต้" -> coffeeImage.setImageResource(R.drawable.latte)
+//                "มอคค่า" -> coffeeImage.setImageResource(R.drawable.mocha)
+//                "เอสเพรสโซ่" -> coffeeImage.setImageResource(R.drawable.espresso)
+//                "อเมริกาโน่" -> coffeeImage.setImageResource(R.drawable.americano)
+//                "ชานม" -> coffeeImage.setImageResource(R.drawable.tea)
+//                "ชาเขียว" -> coffeeImage.setImageResource(R.drawable.greentea)
+//                "ชามะลิ" -> coffeeImage.setImageResource(R.drawable.jasminetea)
+//                "ชาดำ" -> coffeeImage.setImageResource(R.drawable.blacktea)
+//                "ชามะนาว" -> coffeeImage.setImageResource(R.drawable.lemontea)
+//            }
+            coffeeImage.setOnClickListener {
+                it.findNavController().navigate(MyFavoriteFragmentDirections.actionMyFavoriteToCoffeeIngrediantPage(coffeeName = item.coffeeName))
+            }
+            coffeeName.setOnClickListener {
                 it.findNavController().navigate(MyFavoriteFragmentDirections.actionMyFavoriteToCoffeeIngrediantPage(coffeeName = item.coffeeName))
             }
         }
