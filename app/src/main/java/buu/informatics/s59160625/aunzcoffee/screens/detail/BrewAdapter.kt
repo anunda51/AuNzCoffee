@@ -1,16 +1,16 @@
-package buu.informatics.s59160625.aunzcoffee.screens.coffeeList
+package buu.informatics.s59160625.aunzcoffee.screens.detail
+
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.findNavController
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import buu.informatics.s59160625.aunzcoffee.R
-import buu.informatics.s59160625.aunzcoffee.data.MyCoffee
+import buu.informatics.s59160625.aunzcoffee.data.MyBrewing
 
-class CoffeeListAdapter: RecyclerView.Adapter<CoffeeListAdapter.ViewHolder>() {
-    var data = listOf<MyCoffee>()
+class BrewAdapter: RecyclerView.Adapter<BrewAdapter.ViewHolder>() {
+    var data = listOf<MyBrewing>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -23,24 +23,23 @@ class CoffeeListAdapter: RecyclerView.Adapter<CoffeeListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        holder.bind(item)
+        holder.bind(item, position)
     }
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        private val coffeeListBtn : Button = itemView.findViewById(R.id.coffeeListBtn)
+        private val brewNum : TextView = itemView.findViewById(R.id.numBrew)
+        private val brewing : TextView = itemView.findViewById(R.id.brewText)
 
-        fun bind(item: MyCoffee) {
-            coffeeListBtn.text = item.coffee_name
-            coffeeListBtn.setOnClickListener {
-                it.findNavController().navigate(CoffeeListPageDirections.actionCoffeeListPageToCoffeeIngrediantPage(coffeeName = item.coffee_name))
-            }
+        fun bind(item: MyBrewing, position: Int) {
+            brewNum.text = (position+1).toString()
+            brewing.text = item.brewing
         }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val view = layoutInflater
-                    .inflate(R.layout.coffee_list_recycle_view, parent, false)
+                    .inflate(R.layout.brew_item, parent, false)
 
                 return ViewHolder(view)
             }

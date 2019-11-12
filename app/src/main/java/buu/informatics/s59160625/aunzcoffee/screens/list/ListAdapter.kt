@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee.screens.coffeeList
+package buu.informatics.s59160625.aunzcoffee.screens.list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +7,10 @@ import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import buu.informatics.s59160625.aunzcoffee.R
-import buu.informatics.s59160625.aunzcoffee.data.MyTea
+import buu.informatics.s59160625.aunzcoffee.data.MyCoffee
 
-class TeaListAdapter: RecyclerView.Adapter<TeaListAdapter.ViewHolder>(){
-    var data = listOf<MyTea>()
+class ListAdapter: RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+    var data = listOf<MyCoffee>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -29,10 +29,10 @@ class TeaListAdapter: RecyclerView.Adapter<TeaListAdapter.ViewHolder>(){
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val coffeeListBtn : Button = itemView.findViewById(R.id.coffeeListBtn)
 
-        fun bind(item: MyTea) {
-            coffeeListBtn.text = item.tea_name
+        fun bind(item: MyCoffee) {
+            coffeeListBtn.text = item.coffee_name
             coffeeListBtn.setOnClickListener {
-                it.findNavController().navigate(CoffeeListPageDirections.actionCoffeeListPageToCoffeeIngrediantPage(coffeeName = item.tea_name))
+                it.findNavController().navigate(ListFragmentDirections.actionCoffeeListPageToCoffeeIngrediantPage(coffeeName = item.coffee_name))
             }
         }
 
@@ -40,7 +40,7 @@ class TeaListAdapter: RecyclerView.Adapter<TeaListAdapter.ViewHolder>(){
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val view = layoutInflater
-                    .inflate(R.layout.coffee_list_recycle_view, parent, false)
+                    .inflate(R.layout.list_item, parent, false)
 
                 return ViewHolder(view)
             }

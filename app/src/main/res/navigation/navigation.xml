@@ -6,18 +6,18 @@
     app:startDestination="@id/title_page">
     <fragment
         android:id="@+id/title_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.screens.title.TitlePage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.title.TitleFragment"
         android:label="AuNzCoffee"
-        tools:layout="@layout/fragment_title_page">
+        tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_title_page_to_coffeeList_page"
             app:destination="@id/coffeeList_page" />
     </fragment>
     <fragment
         android:id="@+id/coffeeList_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.screens.coffeeList.CoffeeListPage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.list.ListFragment"
         android:label="เลือกประเภท"
-        tools:layout="@layout/fragment_coffee_list_page">
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_coffeeList_page_to_coffeeIngrediant_page"
             app:destination="@id/coffeeIngrediant_page" />
@@ -27,18 +27,18 @@
     </fragment>
     <fragment
         android:id="@+id/coffeeIngrediant_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant.CoffeeIngredientFragment"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.detail.DetailFragment"
         android:label="รายละเอียดการชง"
-        tools:layout="@layout/fragment_coffee_ingrediant_page">
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="coffeeName"
             app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/about_page"
-        android:name="buu.informatics.s59160625.aunzcoffee.screens.about.AboutPage"
+        android:name="buu.informatics.s59160625.aunzcoffee.screens.about.AboutFragment"
         android:label="About"
-        tools:layout="@layout/fragment_about_page" />
+        tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/myFavorite"
         android:name="buu.informatics.s59160625.aunzcoffee.screens.myFavorite.MyFavoriteFragment"

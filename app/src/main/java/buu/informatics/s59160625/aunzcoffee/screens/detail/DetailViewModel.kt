@@ -1,46 +1,25 @@
-package buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant
+package buu.informatics.s59160625.aunzcoffee.screens.detail
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import buu.informatics.s59160625.aunzcoffee.data.MyBrewing
 import buu.informatics.s59160625.aunzcoffee.data.MyIngrediant
 import buu.informatics.s59160625.aunzcoffee.database.Coffee
 import buu.informatics.s59160625.aunzcoffee.database.CoffeeDatabaseDao
 import kotlinx.coroutines.*
 
-class CoffeeIngrediantViewModel(coffeeDatabase: CoffeeDatabaseDao,
-                                application: Application
+class DetailViewModel(coffeeDatabase: CoffeeDatabaseDao,
+                      application: Application
     ) : AndroidViewModel(application) {
 
     val database = coffeeDatabase
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-    private var coffee = MutableLiveData<Coffee?>()
 
     val allCoffee = database.getAllCoffees()
-
-    init {
-        initializeTonight()
-    }
-
-    private fun initializeTonight() {
-        uiScope.launch {
-            coffee.value = getCoffeeFromDatabase()
-        }
-    }
-
-    private suspend fun getCoffeeFromDatabase(): Coffee? {
-        return withContext(Dispatchers.IO) {
-            var data = database.getLastCoffee()
-            data
-
-        }
-    }
 
     private suspend fun insertToDatabase(coffee: Coffee){
         withContext(Dispatchers.IO) {
@@ -54,10 +33,10 @@ class CoffeeIngrediantViewModel(coffeeDatabase: CoffeeDatabaseDao,
             newCoffee.coffeeName = item
 
             insertToDatabase(newCoffee)
-
-            coffee.value = getCoffeeFromDatabase()
         }
     }
+
+    ///////Detail of Ingredient and Brewing///////
 
     private val _ingredientName = MutableLiveData<List<MyIngrediant>>()
     val ingredientName: LiveData<List<MyIngrediant>>

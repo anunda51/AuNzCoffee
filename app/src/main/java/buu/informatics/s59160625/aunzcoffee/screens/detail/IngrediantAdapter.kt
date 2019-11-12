@@ -1,4 +1,4 @@
-package buu.informatics.s59160625.aunzcoffee.screens.coffeeIngrediant
+package buu.informatics.s59160625.aunzcoffee.screens.detail
 
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +39,7 @@ class IngrediantAdapter: RecyclerView.Adapter<IngrediantAdapter.ViewHolder>() {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val view = layoutInflater
-                    .inflate(R.layout.ingrediant_list_item, parent, false)
+                    .inflate(R.layout.ingrediant_item, parent, false)
 
                 return ViewHolder(view)
             }
