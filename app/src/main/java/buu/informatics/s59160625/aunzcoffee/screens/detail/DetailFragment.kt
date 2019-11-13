@@ -19,7 +19,7 @@ import buu.informatics.s59160625.aunzcoffee.databinding.FragmentDetailBinding
  * A simple [Fragment] subclass.
  */
 class DetailFragment : Fragment() {
-
+    lateinit var share_word: String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +33,7 @@ class DetailFragment : Fragment() {
 
         //***Call Argument***///
         val args = DetailFragmentArgs.fromBundle(arguments!!)
+        share_word = args.coffeeName
         binding.ingrediantText.text = args.coffeeName ///***Use Argument***///
 
         viewModel.checkCoffeeToGetIngredient(args.coffeeName)
@@ -77,7 +78,7 @@ class DetailFragment : Fragment() {
     private fun getShareIntent() : Intent {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.setType("text/plain")
-            .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_coffee_text, "Hello"))
+            .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_coffee_text, share_word))
         return shareIntent
     }
 
