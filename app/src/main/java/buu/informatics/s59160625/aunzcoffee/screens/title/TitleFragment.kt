@@ -17,12 +17,14 @@ import buu.informatics.s59160625.aunzcoffee.databinding.FragmentTitleBinding
  * A simple [Fragment] subclass.
  */
 class TitleFragment : Fragment() {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
             R.layout.fragment_title,container, false)
+
         var checkBtn: Int
 
         binding.titleBtnCoffee.setOnClickListener {

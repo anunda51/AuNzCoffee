@@ -39,18 +39,18 @@ class MyFavortieAdapter : RecyclerView.Adapter<MyFavortieAdapter.ViewHolder>(){
 
         fun bind(item: Coffee) {
             coffeeName.text = item.coffeeName
-//            when (item.coffeeName){
-//                "คาปูชิโน่" -> coffeeImage.setImageResource(R.drawable.capu)
-//                "ลาเต้" -> coffeeImage.setImageResource(R.drawable.latte)
-//                "มอคค่า" -> coffeeImage.setImageResource(R.drawable.mocha)
-//                "เอสเพรสโซ่" -> coffeeImage.setImageResource(R.drawable.espresso)
-//                "อเมริกาโน่" -> coffeeImage.setImageResource(R.drawable.americano)
-//                "ชานม" -> coffeeImage.setImageResource(R.drawable.tea)
-//                "ชาเขียว" -> coffeeImage.setImageResource(R.drawable.greentea)
-//                "ชามะลิ" -> coffeeImage.setImageResource(R.drawable.jasminetea)
-//                "ชาดำ" -> coffeeImage.setImageResource(R.drawable.blacktea)
-//                "ชามะนาว" -> coffeeImage.setImageResource(R.drawable.lemontea)
-//            }
+            when (item.coffeeName){
+                "คาปูชิโน่" -> coffeeImage.setImageResource(R.drawable.capu)
+                "ลาเต้" -> coffeeImage.setImageResource(R.drawable.latte)
+                "มอคค่า" -> coffeeImage.setImageResource(R.drawable.mocha)
+                "เอสเพรสโซ่" -> coffeeImage.setImageResource(R.drawable.espresso)
+                "อเมริกาโน่" -> coffeeImage.setImageResource(R.drawable.americano)
+                "ชานม" -> coffeeImage.setImageResource(R.drawable.tea)
+                "ชาเขียว" -> coffeeImage.setImageResource(R.drawable.greentea)
+                "ชามะลิ" -> coffeeImage.setImageResource(R.drawable.jasminetea)
+                "ชาดำ" -> coffeeImage.setImageResource(R.drawable.blacktea)
+                "ชามะนาว" -> coffeeImage.setImageResource(R.drawable.lemontea)
+            }
             coffeeImage.setOnClickListener {
                 it.findNavController().navigate(MyFavoriteFragmentDirections.actionMyFavoriteToCoffeeIngrediantPage(coffeeName = item.coffeeName))
             }
